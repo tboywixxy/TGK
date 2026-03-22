@@ -29,7 +29,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#0B1D35]/95 backdrop-blur-xl shadow-xl py-3 md:py-4"
+          ? "bg-[#0B1D35]/95 backdrop-blur-xl shadow-xl py-3"
           : "bg-transparent py-4 md:py-6"
       }`}
     >
@@ -42,16 +42,13 @@ export default function Navbar() {
 
       <div className="max-w-7xl mx-auto pl-10 pr-5 md:px-16 flex items-center justify-between relative z-10">
         {/* Logo */}
-        <Link href="/home" className="flex items-center gap-2.5 md:gap-3 group">
-          <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-[#BF8C3A] flex items-center justify-center text-white font-bold text-xs md:text-sm tracking-wider flex-shrink-0">
-            TGK
-          </div>
-          <div>
-            <p className="text-white font-semibold text-sm md:text-[15px] leading-tight" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-              The Guardians&apos; Keeper
-            </p>
-            <p className="hidden sm:block text-[#D4A855] text-[9px] tracking-[0.35em] uppercase">Because even protectors need help</p>
-          </div>
+        <Link href="/home" className="flex items-center gap-3">
+          <img 
+            src="/logo-remove-bg.png" 
+            alt="TGK Logo" 
+            className="h-10 md:h-14 w-auto object-contain" 
+          />
+          <p className="hidden md:block text-[#D4A855] text-[9px] tracking-[0.25em] uppercase font-medium max-w-[140px] leading-tight">Because even protectors need help</p>
         </Link>
 
         {/* Desktop */}
