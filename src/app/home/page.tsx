@@ -1,89 +1,168 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
 import CountUp from "@/components/CountUp";
+import OutreachGallery from "@/components/OutreachGallery";
 import Link from "next/link";
 import { ArrowRight, Shield, Heart, Users, Megaphone } from "lucide-react";
 
 export default function HomePage() {
+  const heroSlides = useMemo(
+    () => [
+      {
+        type: "image" as const,
+        src: "https://res.cloudinary.com/df2e1ug1q/image/upload/v1774353044/IMG-20251126-WA0054_1_atxu6w.jpg",
+      },
+      {
+        type: "video" as const,
+        src: "https://res.cloudinary.com/df2e1ug1q/video/upload/v1774350695/VID-20251128-WA0012_exvmuq.mp4",
+      },
+      {
+        type: "image" as const,
+        src: "https://res.cloudinary.com/df2e1ug1q/image/upload/v1774352997/IMG-20251126-WA0000_nkt4jj.jpg",
+      },
+      {
+        type: "video" as const,
+        src: "https://res.cloudinary.com/df2e1ug1q/video/upload/v1774350694/VID-20251127-WA0001_hdz348.mp4",
+      },
+    ],
+    []
+  );
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [heroSlides.length]);
+
   return (
     <div className="overflow-x-hidden">
       {/* ── HERO ─────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden grain">
-        <img
-          src="/bg-img.jpeg"
-          alt="Hero"
-          className="absolute inset-0 w-full h-full object-cover"
+{/* ── HERO ─────────────────────────────────────────── */}
+{/* ── HERO ─────────────────────────────────────────── */}
+<section className="relative min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center overflow-hidden grain">
+  {/* Slides */}
+  <div className="absolute inset-0">
+    {heroSlides.map((slide, index) => (
+      <div
+        key={index}
+        className={`absolute inset-0 transition-opacity duration-1000 ${
+          index === currentSlide ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        {slide.type === "image" ? (
+          <img
+            src={slide.src}
+            alt={`Hero slide ${index + 1}`}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : (
+          <video
+            src={slide.src}
+            className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+        )}
+      </div>
+    ))}
+  </div>
+
+  <div className="absolute inset-0 bg-gradient-to-b from-[#0B1D35]/80 via-[#0B1D35]/65 to-[#0B1D35]" />
+
+  <div className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16 text-center pt-20 pb-10 sm:pt-24 sm:pb-12">
+    {/* Logo */}
+    <div className="mb-4 sm:mb-5 flex justify-center">
+      <img
+        src="/logo-remove-bg.png"
+        alt="The Guardians Keeper Logo"
+        className="h-14 w-14 sm:h-16 sm:w-16 object-contain"
+      />
+    </div>
+
+    <div className="inline-flex items-center border border-white/20 bg-white/8 backdrop-blur-sm rounded-full px-3 py-1.5 mb-5 sm:mb-6">
+      <span className="text-white/75 text-[9px] sm:text-[10px] tracking-[0.18em] sm:tracking-[0.22em] uppercase font-medium">
+        NGO enhancing physical safety in Nigeria
+      </span>
+    </div>
+
+    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl text-white font-light leading-[0.92] mb-3">
+      The
+      <br />
+      Guardians&apos;
+      <br />
+      <em className="text-[#D4A855] not-italic font-light">Keeper</em>
+    </h1>
+
+    <p className="text-white text-sm sm:text-base md:text-lg font-medium tracking-wide mt-3 sm:mt-4 mb-6 sm:mb-8 max-w-md mx-auto px-2">
+      &hellip;because even protectors need help
+    </p>
+
+    <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+      <Link
+        href="/about"
+        className="group inline-flex items-center justify-center gap-3 bg-[#BF8C3A] hover:bg-[#D4A855] text-white font-medium px-6 py-3 rounded-full transition-all duration-300 text-sm tracking-wide hover:shadow-2xl hover:shadow-[#BF8C3A]/30 w-full sm:w-auto"
+      >
+        Discover Our Mission
+        <ArrowRight
+          size={16}
+          className="group-hover:translate-x-1 transition-transform"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1D35]/80 via-[#0B1D35]/70 to-[#0B1D35]" />
+      </Link>
 
-        {/* Nigerian stripe */}
-        <div className="absolute left-2 md:left-10 top-0 h-full w-2 flex flex-col z-10 opacity-70">
-          <div className="flex-1 bg-[#008751]" />
-          <div className="flex-1 bg-white" />
-          <div className="flex-1 bg-[#008751]" />
-        </div>
+      <Link
+        href="/contact"
+        className="inline-flex items-center justify-center gap-3 border border-white/25 text-white hover:border-white/50 hover:bg-white/10 font-medium px-6 py-3 rounded-full transition-all duration-300 text-sm tracking-wide w-full sm:w-auto"
+      >
+        Support the Cause
+      </Link>
+    </div>
 
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16 text-center pt-32 pb-20 sm:pt-36 sm:pb-24">
-          <div className="inline-flex items-center gap-2.5 border border-white/20 bg-white/8 backdrop-blur-sm rounded-full px-5 py-2 mb-10 sm:mb-12">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#006B42] animate-pulse" />
-            <span className="text-white/75 text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase font-medium">
-              Registered Nigerian NGO
-            </span>
-          </div>
+    {/* Slide indicators */}
+    <div className="mt-5 flex justify-center gap-3">
+      {heroSlides.map((_, index) => (
+        <button
+          key={index}
+          onClick={() => setCurrentSlide(index)}
+          className={`h-2 rounded-full transition-all duration-300 ${
+            index === currentSlide
+              ? "w-7 bg-[#D4A855]"
+              : "w-2 bg-white/40 hover:bg-white/70"
+          }`}
+          aria-label={`Go to slide ${index + 1}`}
+        />
+      ))}
+    </div>
 
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white font-light leading-[1] sm:leading-[0.95] mb-6">
-            The
-            <br />
-            Guardians&apos;
-            <br />
-            <em className="text-[#D4A855] not-italic font-light">Keeper</em>
-          </h1>
-
-          <p className="text-white/60 text-base sm:text-lg md:text-xl font-light tracking-wide mt-6 sm:mt-8 mb-12 sm:mb-14 max-w-lg mx-auto px-2">
-            &hellip;because even protectors need help
+    {/* Stats */}
+    <div className="mt-8 sm:mt-10 pt-5 sm:pt-6 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 max-w-2xl mx-auto">
+      {[
+        { end: 100, suffix: "+", label: "Items Donated" },
+        { end: 4, suffix: "", label: "Locations Reached" },
+        { end: 250000, suffix: "+", label: "Officers we hope to serve" },
+      ].map((s) => (
+        <div key={s.label} className="text-center">
+          <p
+            className="text-2xl sm:text-3xl md:text-4xl font-light text-[#D4A855]"
+            style={{ fontFamily: "'Cormorant Garamond', serif" }}
+          >
+            <CountUp end={s.end} suffix={s.suffix} />
           </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              href="/about"
-              className="group inline-flex items-center justify-center gap-3 bg-[#BF8C3A] hover:bg-[#D4A855] text-white font-medium px-9 py-4 rounded-full transition-all duration-300 text-sm tracking-wide hover:shadow-2xl hover:shadow-[#BF8C3A]/30 w-full sm:w-auto"
-            >
-              Discover Our Mission
-              <ArrowRight
-                size={16}
-                className="group-hover:translate-x-1 transition-transform"
-              />
-            </Link>
-
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-3 border border-white/25 text-white hover:border-white/50 hover:bg-white/10 font-medium px-9 py-4 rounded-full transition-all duration-300 text-sm tracking-wide w-full sm:w-auto"
-            >
-              Support the Cause
-            </Link>
-          </div>
-
-          {/* Stats */}
-          <div className="mt-16 sm:mt-20 pt-8 sm:pt-10 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-2xl mx-auto">
-            {[
-              { end: 102, suffix: "+", label: "Items Donated" },
-              { end: 4, suffix: "", label: "Locations Reached" },
-              { end: 250000, suffix: "+", label: "Officers We Serve" },
-            ].map((s) => (
-              <div key={s.label} className="text-center">
-                <p
-                  className="text-4xl md:text-5xl font-light text-[#D4A855]"
-                  style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                >
-                  <CountUp end={s.end} suffix={s.suffix} />
-                </p>
-                <p className="text-white/40 text-xs mt-2 tracking-wide">
-                  {s.label}
-                </p>
-              </div>
-            ))}
-          </div>
+          <p className="text-white/40 text-[10px] sm:text-[11px] mt-1 tracking-wide">
+            {s.label}
+          </p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* ── MISSION STRIP ─────────────────────────────────── */}
       <section className="bg-[#BF8C3A] py-6">
@@ -112,7 +191,7 @@ export default function HomePage() {
                   Who We Are
                 </p>
                 <h2 className="text-4xl sm:text-5xl md:text-6xl font-light text-[#0B1D35] leading-tight mb-8 sm:mb-10">
-                  Protecting
+                  Supporting
                   <br />
                   Those Who
                   <br />
@@ -206,7 +285,7 @@ export default function HomePage() {
             <ScrollReveal animation="reveal-left">
               <div className="relative rounded-3xl overflow-hidden aspect-[4/3]">
                 <img
-                  src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&q=80"
+                  src="https://res.cloudinary.com/df2e1ug1q/image/upload/v1774352997/IMG-20251126-WA0000_nkt4jj.jpg"
                   alt="Outreach"
                   className="w-full h-full object-cover"
                 />
@@ -278,6 +357,27 @@ export default function HomePage() {
               </ScrollReveal>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── OUTREACH GALLERY ──────────────────────────────── */}
+      <section className="py-24 sm:py-28 bg-[#F9F6EF]">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
+          <ScrollReveal>
+            <div className="text-center mb-12">
+              <span className="gold-bar mx-auto mb-6" />
+              <p className="text-[#BF8C3A] text-xs tracking-[0.35em] uppercase font-semibold mb-5">
+                Our Outreach
+              </p>
+              <h2 className="text-4xl sm:text-5xl font-light text-[#0B1D35] leading-tight mb-8">
+                Pictures from
+                <br />
+                <em className="text-[#BF8C3A]">Outreach</em>
+              </h2>
+            </div>
+          </ScrollReveal>
+
+          <OutreachGallery />
         </div>
       </section>
 

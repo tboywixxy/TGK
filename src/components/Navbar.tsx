@@ -9,6 +9,7 @@ const links = [
   { label: "About",    href: "/about" },
   { label: "Programs", href: "/programs" },
   { label: "Impact",   href: "/impact" },
+  { label: "Gallery",  href: "/gallery" },
   { label: "Contact",  href: "/contact" },
 ];
 
@@ -82,7 +83,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div className={`lg:hidden overflow-hidden transition-all duration-400 ${open ? "max-h-96" : "max-h-0"}`}>
-        <div className="bg-[#0B1D35] border-t border-white/10 px-6 py-6 flex flex-col gap-5">
+        <div className="bg-[#0B1D35] border-t border-white/10 pl-12 pr-6 py-6 flex flex-col gap-5">
           {links.map((l) => (
             <Link
               key={l.href}

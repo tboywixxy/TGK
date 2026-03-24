@@ -60,7 +60,7 @@ export default function Hero() {
           {[
             { num: "102",  label: "Raincoats Donated" },
             { num: "4",    label: "Locations Reached" },
-            { num: "250K", label: "Officers We Serve" },
+            { num: "250K", label: "Officers we hope to serve" },
           ].map((s) => (
             <div key={s.label} className="text-center">
               <p className="font-display text-3xl md:text-4xl text-[#E4AE4A] font-semibold">{s.num}</p>

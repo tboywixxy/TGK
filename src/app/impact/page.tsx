@@ -35,7 +35,7 @@ export default function ImpactPage() {
         title="Our"
         titleItalic="Impact"
         subtitle="Transparent reporting on every action taken and every naira spent — November 2025."
-        img="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1600&q=80"
+        img="https://res.cloudinary.com/df2e1ug1q/image/upload/v1774353039/IMG-20251128-WA0001_w2zt6d.jpg"
       />
 
       {/* Stats grid */}
@@ -142,6 +142,27 @@ export default function ImpactPage() {
               </ScrollReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Download Report */}
+      <section className="py-28 bg-[#F9F6EF]">
+        <div className="max-w-4xl mx-auto px-8 md:px-16 lg:px-24 text-center">
+          <ScrollReveal>
+            <span className="gold-bar mx-auto mb-6" />
+            <h2 className="text-4xl font-light text-[#0B1D35] mb-6">Download Our <em className="text-[#BF8C3A]">Full Report</em></h2>
+            <p className="text-[#8A96A3] text-sm mb-10">Get the complete PDF report of our first outreach, including detailed breakdowns and photos.</p>
+            <a
+              href="/files/tgk-1.pdf"
+              download
+              className="inline-flex items-center gap-3 bg-[#BF8C3A] hover:bg-[#D4A855] text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#BF8C3A]/30"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Download PDF Report
+            </a>
+          </ScrollReveal>
         </div>
       </section>
     </div>

@@ -8,25 +8,25 @@ const team = [
     name: "Elizabeth Obode",
     role: "Chairman & Co-Founder",
     bio: "A strategy consultant and Supernumerary Police (SPY) officer. Elizabeth believes national transformation must begin with protecting those who protect others.",
-    img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&q=80",
+    img: "/Elizabeth-CEO.jpeg",
   },
   {
     name: "Juwon Ifalade",
     role: "Co-Founder",
     bio: "An engineer and passionate educator who has spent years mentoring students across Nigeria. He believes dignity should be extended to all who serve the nation.",
-    img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&q=80",
+    img: "/Juwon.jpeg",
   },
   {
     name: "Teslim Idowu",
     role: "Co-Founder",
     bio: "An engineer with experience deploying renewable energy systems in underserved regions, he has witnessed firsthand how human safety shapes community well-being.",
-    img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&q=80",
+    img: "/Idowu.jpeg",
   },
   {
     name: "Ibrahim Yisa",
     role: "Co-Founder",
     bio: "A technologist and civic leader who joined the School of Politics, Policy and Governance to better understand systems affecting national development.",
-    img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500&q=80",
+    img: "/Yisa.jpeg",
   },
 ];
 
@@ -45,7 +45,7 @@ export default function AboutPage() {
         title="About"
         titleItalic="TGK"
         subtitle="A foundation born from the belief that national transformation starts with those who dedicate their lives to protecting others."
-        img="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1600&q=80"
+        img="https://res.cloudinary.com/df2e1ug1q/image/upload/v1774353004/IMG-20251126-WA0006_amc2sq.jpg"
       />
 
       {/* Story */}
