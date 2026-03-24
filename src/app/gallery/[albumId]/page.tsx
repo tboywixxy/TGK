@@ -61,11 +61,11 @@ export default function AlbumPage({
 
   return (
     <div className="overflow-x-hidden bg-white">
-      <div className="bg-[#0B1D35] py-12 text-white">
+      <div className="bg-[#0B1D35] pt-32 pb-12 text-white">
         <div className="mx-auto max-w-7xl px-8 md:px-16 lg:px-24">
           <Link
             href="/gallery"
-            className="mb-6 inline-flex items-center gap-2 text-[#D4A855] transition-colors hover:text-white"
+            className="relative z-10 mb-6 inline-flex items-center gap-2 text-[#D4A855] transition-colors hover:text-white"
           >
             <ChevronLeft size={20} />
             Back to Gallery

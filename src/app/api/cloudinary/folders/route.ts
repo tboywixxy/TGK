@@ -9,6 +9,13 @@ cloudinary.config({
 
 export async function GET() {
   try {
+    // Configure Cloudinary inside the handler to ensure env vars are loaded
+    cloudinary.config({
+      cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+      api_key: process.env.CLOUDINARY_API_KEY,
+      api_secret: process.env.CLOUDINARY_API_SECRET,
+    });
+
     let nextCursor: string | undefined = undefined;
     const allFolders: { name: string; path: string }[] = [];
 
