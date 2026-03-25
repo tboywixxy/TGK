@@ -46,6 +46,7 @@ export default function AboutPage() {
         titleItalic="TGK"
         subtitle="A foundation born from the belief that national transformation starts with those who dedicate their lives to protecting others."
         img="https://res.cloudinary.com/df2e1ug1q/image/upload/v1774353004/IMG-20251126-WA0006_amc2sq.jpg"
+        imgClassName="object-[50%_35%]"
       />
 
       {/* Story */}

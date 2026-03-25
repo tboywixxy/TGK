@@ -12,6 +12,7 @@ export default function ContactPage() {
         titleItalic="Us"
         subtitle="Whether you want to donate, volunteer, partner, or simply learn more — we want to hear from you."
         img="https://res.cloudinary.com/df2e1ug1q/image/upload/v1774352998/WhatsApp_Image_2025-11-26_at_20.15.08_1_rrikko.jpg"
+        imgClassName="object-[50%_35%]"
       />
 
       <section className="py-32 bg-white">

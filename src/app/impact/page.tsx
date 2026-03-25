@@ -21,10 +21,10 @@ const expenditure = [
 ];
 
 const locations = [
-  { name: "Nigerian Police Training School", area: "Lagos State",   img: "https://images.unsplash.com/photo-1604537466158-719b1972feb8?w=600&q=80" },
-  { name: "Ikeja Divisional Headquarters",   area: "Ikeja, Lagos",  img: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=600&q=80" },
-  { name: "Maroko Divisional Headquarters",  area: "Maroko, Lagos", img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" },
-  { name: "Victoria Island Divisional HQ",   area: "V/I, Lagos",    img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" },
+  { name: "Nigerian Police Training School", area: "Lagos State",   img: "https://res.cloudinary.com/df2e1ug1q/image/upload/v1774353044/IMG-20251126-WA0054_1_atxu6w.jpg" },
+  { name: "Ikeja Divisional Headquarters",   area: "Ikeja, Lagos",  img: "https://res.cloudinary.com/df2e1ug1q/image/upload/v1774353040/IMG-20251128-WA0003_lgfvrx.jpg" },
+  { name: "Maroko Divisional Headquarters",  area: "Maroko, Lagos", img: "https://res.cloudinary.com/df2e1ug1q/image/upload/v1774353039/IMG-20251128-WA0002_cjeysp.jpg" },
+  { name: "Victoria Island Divisional HQ",   area: "V/I, Lagos",    img: "https://res.cloudinary.com/df2e1ug1q/image/upload/v1774353035/IMG-20251126-WA0050_u3c7yr.jpg" },
 ];
 
 export default function ImpactPage() {
@@ -46,7 +46,7 @@ export default function ImpactPage() {
             <p className="text-[#BF8C3A] text-xs tracking-[0.35em] uppercase font-semibold mb-5">By the Numbers</p>
             <h2 className="text-5xl font-light text-[#0B1D35]">First Outreach — <em className="text-[#BF8C3A]">Results</em></h2>
           </ScrollReveal>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
+          <div className="grid md:grid-cols-2 gap-6 mt-16">
             {stats.map((s, i) => (
               <ScrollReveal key={s.label} delay={i * 0.08}>
                 <div className="lift group border border-[#0B1D35]/8 rounded-2xl p-10 bg-[#F9F6EF] hover:bg-[#0B1D35] transition-colors duration-500 h-full text-center">
@@ -154,7 +154,7 @@ export default function ImpactPage() {
             <p className="text-[#8A96A3] text-sm mb-10">Get the complete PDF report of our first outreach, including detailed breakdowns and photos.</p>
             <a
               href="/files/tgk-1.pdf"
-              download
+              download="The Guardians Keeper first outreach"
               className="inline-flex items-center gap-3 bg-[#BF8C3A] hover:bg-[#D4A855] text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#BF8C3A]/30"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
