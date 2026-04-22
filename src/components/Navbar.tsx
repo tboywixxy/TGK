@@ -130,7 +130,7 @@ export default function Navbar() {
             <div className="flex-1 bg-[#008751]" />
           </div>
 
-          <div className="relative z-10 flex h-full flex-col px-8 pt-6 pb-8">
+          <div className="relative z-10 flex h-full flex-col overflow-y-auto overscroll-contain px-8 pt-6 pb-[calc(2rem+env(safe-area-inset-bottom))] [-webkit-overflow-scrolling:touch]">
             {/* Top row */}
             <div className="flex items-center justify-between">
               <div>
