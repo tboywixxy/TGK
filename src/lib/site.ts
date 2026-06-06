@@ -1,7 +1,16 @@
-const DEFAULT_SITE_URL = "https://theguardianskeeper.org";
+const DEFAULT_SITE_URL = "https://theguardianskeeper.com";
+
+function isLocalUrl(value: string) {
+  try {
+    const { hostname } = new URL(value);
+    return hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1";
+  } catch {
+    return false;
+  }
+}
 
 function normalizeSiteUrl(value?: string) {
-  if (!value) {
+  if (!value || isLocalUrl(value)) {
     return DEFAULT_SITE_URL;
   }
 

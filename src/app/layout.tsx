@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "The Guardians' Keeper | TGK Nigeria",
   description: "Because even protectors need help. TGK is a registered Nigerian NGO supporting the Nigerian Police Force.",
+  openGraph: {
+    url: siteUrl,
+    title: "The Guardians' Keeper | TGK Nigeria",
+    description: "Because even protectors need help. TGK is a registered Nigerian NGO supporting the Nigerian Police Force.",
+    siteName: "The Guardians' Keeper",
+    type: "website",
+  },
   verification: {
     google: "oZMd5giMvPxMXr_bLkUU59YDFwbO4lZOIS4io2MAHos",
   },
