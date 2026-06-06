@@ -6,12 +6,15 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "The Guardians' Keeper | TGK Nigeria",
   description: "Because even protectors need help. TGK is a registered Nigerian NGO supporting the Nigerian Police Force.",
+  verification: {
+    google: "oZMd5giMvPxMXr_bLkUU59YDFwbO4lZOIS4io2MAHos",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
+      <body suppressHydrationWarning>
         <Navbar />
         <main>{children}</main>
         <Footer />
