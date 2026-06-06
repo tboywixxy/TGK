@@ -1,6 +1,8 @@
-import PageHero from "@/components/PageHero";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Shield, Heart, Users, Megaphone } from "lucide-react";
+import PageHero from "@/components/PageHero";
+import { createPageMetadata } from "@/lib/metadata";
 
 const programs = [
   {
@@ -57,6 +59,15 @@ const programs = [
   },
 ];
 
+export const metadata: Metadata = createPageMetadata({
+  title: "TGK Programs | Police Welfare and Community Safety",
+  description:
+    "Discover TGK programs focused on police welfare, mental health support, community engagement, and advocacy for safer communities in Nigeria.",
+  path: "/programs",
+  image:
+    "https://res.cloudinary.com/df2e1ug1q/image/upload/v1774353013/IMG-20251126-WA0032_lg7hfc.jpg",
+});
+
 export default function ProgramsPage() {
   return (
     <div className="overflow-x-hidden bg-white">
@@ -66,6 +77,7 @@ export default function ProgramsPage() {
         titleItalic="Programs"
         subtitle="Four strategic pillars — from individual welfare to systemic policy reform."
         img="https://res.cloudinary.com/df2e1ug1q/image/upload/v1774353013/IMG-20251126-WA0032_lg7hfc.jpg"
+        imgAlt="TGK outreach volunteers and police officers during a community support program in Lagos"
       />
 
       <section className="py-16 md:py-20">
@@ -141,6 +153,19 @@ export default function ProgramsPage() {
                           className="transition-transform duration-200 group-hover:translate-x-1"
                         />
                       </Link>
+
+                      <div className="mt-4">
+                        <Link
+                          href="/impact"
+                          className="group inline-flex items-center gap-3 text-sm font-semibold text-[#8A96A3] hover:text-[#BF8C3A] transition-colors"
+                        >
+                          See our impact in action
+                          <ArrowRight
+                            size={15}
+                            className="transition-transform duration-200 group-hover:translate-x-1"
+                          />
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </article>
@@ -162,16 +187,24 @@ export default function ProgramsPage() {
             Whether you donate, volunteer your skills, or partner with us —
             there is a role for everyone in this mission.
           </p>
-          <Link
-            href="/contact"
-            className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#0B1D35] px-9 py-4 text-sm font-medium text-white transition-colors duration-200 hover:bg-[#152C4E]"
-          >
-            Contact Us
-            <ArrowRight
-              size={15}
-              className="transition-transform duration-200 group-hover:translate-x-1"
-            />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#0B1D35] px-9 py-4 text-sm font-medium text-white transition-colors duration-200 hover:bg-[#152C4E]"
+            >
+              Contact Us
+              <ArrowRight
+                size={15}
+                className="transition-transform duration-200 group-hover:translate-x-1"
+              />
+            </Link>
+            <Link
+              href="/about"
+              className="inline-flex items-center justify-center gap-3 rounded-full border border-[#0B1D35]/15 px-9 py-4 text-sm font-medium text-[#0B1D35] transition-colors duration-200 hover:border-[#BF8C3A] hover:text-[#BF8C3A]"
+            >
+              Learn about TGK
+            </Link>
+          </div>
         </div>
       </section>
     </div>

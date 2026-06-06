@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ArrowRight } from "lucide-react";
 
 const links = [
-  { label: "Home", href: "/home" },
+  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Programs", href: "/programs" },
   { label: "Impact", href: "/impact" },
@@ -59,7 +59,7 @@ export default function Navbar() {
 
         <div className="max-w-7xl mx-auto pl-10 pr-5 md:px-16 flex items-center justify-between relative z-10">
           {/* Logo */}
-          <Link href="/home" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <img
               src="/logo-remove-bg.png"
               alt="TGK Logo"
@@ -72,19 +72,26 @@ export default function Navbar() {
 
           {/* Desktop */}
           <nav className="hidden lg:flex items-center gap-8">
-            {links.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className={`relative text-sm font-medium transition-colors duration-200 after:absolute after:left-0 after:-bottom-1.5 after:h-[1.5px] after:w-0 after:bg-[#D4A855] after:transition-all after:duration-200 hover:after:w-full ${
-                  pathname === l.href
-                    ? "text-white after:w-full"
-                    : "text-white/70 hover:text-white"
-                }`}
-              >
-                {l.label}
-              </Link>
-            ))}
+            {links.map((l) => {
+              const active =
+                l.href === "/"
+                  ? pathname === "/" || pathname === "/home"
+                  : pathname === l.href;
+
+              return (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className={`relative text-sm font-medium transition-colors duration-200 after:absolute after:left-0 after:-bottom-1.5 after:h-[1.5px] after:w-0 after:bg-[#D4A855] after:transition-all after:duration-200 hover:after:w-full ${
+                    active
+                      ? "text-white after:w-full"
+                      : "text-white/70 hover:text-white"
+                  }`}
+                >
+                  {l.label}
+                </Link>
+              );
+            })}
           </nav>
 
           <Link
@@ -154,7 +161,10 @@ export default function Navbar() {
             {/* Links */}
             <nav className="mt-10 flex flex-col">
               {links.map((l, i) => {
-                const active = pathname === l.href;
+                const active =
+                  l.href === "/"
+                    ? pathname === "/" || pathname === "/home"
+                    : pathname === l.href;
 
                 return (
                   <Link

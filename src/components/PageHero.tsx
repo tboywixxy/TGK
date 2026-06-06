@@ -5,15 +5,24 @@ interface Props {
   subtitle?: string;
   img?: string;
   imgClassName?: string;
+  imgAlt?: string;
 }
 
-export default function PageHero({ label, title, titleItalic, subtitle, img, imgClassName }: Props) {
+export default function PageHero({
+  label,
+  title,
+  titleItalic,
+  subtitle,
+  img,
+  imgClassName,
+  imgAlt,
+}: Props) {
   return (
     <section className="relative h-[52vh] min-h-[380px] flex items-end overflow-hidden bg-[#0B1D35]">
       {img && (
         <img
           src={img}
-          alt={title}
+          alt={imgAlt ?? title}
           className={`absolute inset-0 w-full h-full object-cover opacity-60 ${imgClassName || ""}`}
         />
       )}
